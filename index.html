@@ -7,59 +7,186 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts - Open Sans for clean, modern typography -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Care Massage</h1>
-            <p class="tagline">Where relaxation meets expertise</p>
+            <div class="header-content">
+                <h1>Care Massage</h1>
+                <p class="tagline">Where relaxation meets expertise</p>
+            </div>
         </div>
     </header>
 
     <main>
         <section class="about">
             <div class="container">
-                <h2>About Us</h2>
-                <p>Welcome to Care Massage, your sanctuary of tranquility and wellness. Our experienced therapists are dedicated to providing personalized massage treatments that help you unwind, rejuvenate, and find your inner peace. We believe in the healing power of touch and create a serene environment where you can escape the stresses of daily life.</p>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>About Us</h2>
+                        <p>Welcome to Care Massage, your sanctuary of tranquility and wellness. Our experienced therapists are dedicated to providing personalized massage treatments that help you unwind, rejuvenate, and find your inner peace. We believe in the healing power of touch and create a serene environment where you can escape the stresses of daily life.</p>
+                        <div class="features">
+                            <div class="feature">
+                                <i class="fas fa-spa"></i>
+                                <h3>Expert Therapists</h3>
+                                <p>Licensed professionals with years of experience</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-leaf"></i>
+                                <h3>Natural Products</h3>
+                                <p>Premium oils and lotions for your comfort</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-heart"></i>
+                                <h3>Personalized Care</h3>
+                                <p>Tailored treatments for your specific needs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="container">
+                <div class="pricing-grid">
+                    <div class="pricing-category">
+                        <h3>Body Massage <span class="highlight">(free hot stone)</span></h3>
+                        <ul>
+                            <li>60 min Body Massage with Oil – $80</li>
+                            <li>90 min Body Massage with Oil – $120</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-category">
+                        <h3>Foot Massage</h3>
+                        <ul>
+                            <li>60 min Foot Massage – $80</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-category">
+                        <h3>Combo Massage</h3>
+                        <ul>
+                            <li>30 min Body + 30 min foot – $80</li>
+                            <li>45 min Body + 45 min foot – $120</li>
+                            <li>60 min Body + 60 min foot – $150</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-note">
+                        <p><i class="fas fa-plus-circle"></i> Upgrade to CBD infused oil – $10 extra</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="booking">
             <div class="container">
-                <h2>Book Your Session</h2>
-                <form id="bookingForm" onsubmit="return handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="fullName">Full Name *</label>
-                        <input type="text" id="fullName" name="fullName" required>
+                <div class="booking-grid">
+                    <div class="booking-content">
+                        <h2>Book Your Session</h2>
+                        <form id="bookingForm" onsubmit="return handleSubmit(event)">
+                            <div class="form-group">
+                                <label for="massageType">Select Massage Type</label>
+                                <select id="massageType" name="massageType" required>
+                                    <optgroup label="Body Massage">
+                                        <option value="60 min Body Massage">60 min Body Massage</option>
+                                        <option value="90 min Body Massage">90 min Body Massage</option>
+                                    </optgroup>
+                                    <optgroup label="Foot Massage">
+                                        <option value="60 min Foot Massage">60 min Foot Massage</option>
+                                    </optgroup>
+                                    <optgroup label="Combo Massage">
+                                        <option value="60 min Body + 30 min Foot">60 min Body + 30 min Foot</option>
+                                        <option value="90 min Body + 30 min Foot">90 min Body + 30 min Foot</option>
+                                        <option value="60 min Body + 60 min Foot">60 min Body + 60 min Foot</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cbdUpgrade">CBD Oil Upgrade</label>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="cbdUpgrade" name="cbdUpgrade" value="yes">
+                                    <label for="cbdUpgrade">Add CBD infused oil</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+                                <small>Format: 1234567890 (no spaces or dashes)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date">Preferred Date *</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="time">Preferred Time *</label>
+                                <input type="time" id="time" name="time" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notes">Special Requests or Notes</label>
+                                <textarea id="notes" name="notes" rows="4"></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Book Now</button>
+                        </form>
+
+                        <div id="confirmation" class="confirmation-message" style="display: none;">
+                            <h3>Thank You!</h3>
+                            <p>Your booking request has been received. We'll contact you shortly to confirm your appointment.</p>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
-                        <small>Format: 1234567890 (no spaces or dashes)</small>
+                    <div class="map-container">
+                        <h3>Visit Us</h3>
+                        <div class="map-wrapper">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d-89.51884492346484!3d37.30576997197725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88778c5c2c0c0c0f%3A0x8c0c0c0c0c0c0c0c!2s209%20S%20Broadview%20St%2C%20Cape%20Girardeau%2C%20MO%2063703!5e0!3m2!1sen!2sus!4v1647881234567!5m2!1sen!2sus"
+                                width="100%"
+                                height="450"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="location-info">
+                            <p><i class="fas fa-map-marker-alt"></i> 209 S Broadview St, Cape Girardeau, MO 63703</p>
+                            <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</p>
+                            <p><i class="fas fa-phone"></i> (573) 225-7807</p>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="form-group">
-                        <label for="date">Preferred Date *</label>
-                        <input type="date" id="date" name="date" required>
+        <section class="testimonials">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"I had a deep tissue massage with May and it was the best massage I have ever had! The ladies were all very sweet and the shop was cute and comfortable. Will definitely be coming back!!"</p>
+                        <p class="client-name">- Abigail Nix</p>
                     </div>
-
-                    <div class="form-group">
-                        <label for="time">Preferred Time *</label>
-                        <input type="time" id="time" name="time" required>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Absolutely perfect massage!! Tony did wonderful. I struggle with chronic back pain and a thoracic muscle that tightens up. I will definitely be back, and I want to try to make this a routine. It was that perfect! The stress and pain melted away. I feel like a new person haha."</p>
+                        <p class="client-name">- Mariah Riah</p>
                     </div>
-
-                    <div class="form-group">
-                        <label for="notes">Special Requests or Notes</label>
-                        <textarea id="notes" name="notes" rows="4"></textarea>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Was in complete pain all over! Went to Masagecare and they fixed it all! Friendly staff who knew what they were doing! Going there again."</p>
+                        <p class="client-name">- Gil Alexandar</p>
                     </div>
-
-                    <button type="submit" class="submit-btn">Book Now</button>
-                </form>
-
-                <div id="confirmation" class="confirmation-message" style="display: none;">
-                    <h3>Thank You!</h3>
-                    <p>Your booking request has been received. We'll contact you shortly to confirm your appointment.</p>
                 </div>
             </div>
         </section>
@@ -67,48 +194,70 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Care Massage. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Care Massage</h3>
+                    <p>Your journey to wellness begins here</p>
+                </div>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> (573) 225-7807</p>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2024 Care Massage. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Form submission handler
-        async function handleSubmit(event) {
-            event.preventDefault();
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
-            
-            try {
-                // TODO: Replace with your Google Apps Script webhook URL
-                const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
+            const formData = {
+                name: document.getElementById('fullName').value,
+                phone: document.getElementById('phone').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                message: document.getElementById('notes').value,
+                massageType: document.getElementById('massageType').value,
+                cbdUpgrade: document.getElementById('cbdUpgrade').checked
+            };
 
-                if (response.ok) {
-                    // Show confirmation message
-                    document.getElementById('bookingForm').style.display = 'none';
-                    document.getElementById('confirmation').style.display = 'block';
-                } else {
-                    throw new Error('Submission failed');
-                }
-            } catch (error) {
-                alert('Sorry, there was an error submitting your booking. Please try again.');
-                console.error('Error:', error);
-            }
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
 
-            return false;
-        }
+            console.log('Submitting form data:', formData);
+
+            fetch('{{ secrets.GOOGLE_MACRO }}', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                console.log('Response received:', response);
+                // Since we're using no-cors, we can't check response.ok
+                // Instead, we'll assume success if we get here
+                document.getElementById('confirmation').style.display = 'block';
+                document.getElementById('bookingForm').reset();
+            })
+            .catch(error => {
+                console.error('Error details:', error);
+                alert('There was a problem submitting your booking. Please try again or call us directly at (573) 225-7807.');
+            })
+            .finally(() => {
+                // Reset button state
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            });
+        });
 
         // Set minimum date to today
-        const dateInput = document.getElementById('date');
         const today = new Date().toISOString().split('T')[0];
-        dateInput.min = today;
+        document.getElementById('date').min = today;
     </script>
 </body>
 </html> 
