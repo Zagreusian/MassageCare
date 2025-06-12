@@ -31,4 +31,4 @@ jobs:
           SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
         run: |
           clasp push
-          clasp deploy --deploymentId ${{ secrets.DEPLOYMENT_ID }} 
+          # clasp deploy --deploymentId ${{ secrets.DEPLOYMENT_ID }} 
